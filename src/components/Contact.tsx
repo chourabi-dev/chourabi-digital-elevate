@@ -28,32 +28,23 @@ const Contact = () => {
   });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      contactSchema.parse(formData);
+      e.preventDefault();
+
+      const subject = `New Contact Request from ${formData.name}`;
       
-      // Create WhatsApp message
-      const message = `Nouveau contact depuis le site CES:\n\nNom: ${formData.name}\nEmail: ${formData.email}\nTéléphone: ${formData.phone || 'Non renseigné'}\nEntreprise: ${formData.company || 'Non renseignée'}\n\nMessage:\n${formData.message}`;
-      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      
-      window.open(whatsappUrl, '_blank');
-      
-      toast({
-        title: language === 'fr' ? 'Message envoyé!' : 'Message sent!',
-        description: language === 'fr' ? 'Nous vous contacterons bientôt.' : 'We will contact you soon.',
-      });
-      
-      setFormData({ name: '', email: '', phone: '', company: '', message: '' });
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        toast({
-          title: language === 'fr' ? 'Erreur de validation' : 'Validation error',
-          description: error.errors[0].message,
-          variant: 'destructive',
-        });
-      }
-    }
+        const body = `
+      Name: ${formData.name}
+      Email: ${formData.email}
+      Phone: ${formData.phone || 'N/A'}
+      Company: ${formData.company || 'N/A'}
+
+      Message:
+      ${formData.message}
+        `;
+
+        const mailtoLink = `mailto:contact@chourabi-e-business-solutions.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoLink;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -64,17 +55,17 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'contact@ces-agency.com',
+      value: 'contact@chourabi-e-business-solutions.com',
     },
     {
       icon: Phone,
       label: language === 'fr' ? 'Téléphone' : 'Phone',
-      value: '+216 XX XXX XXX',
+      value: '+216 93 863 732',
     },
     {
       icon: MapPin,
       label: language === 'fr' ? 'Adresse' : 'Address',
-      value: language === 'fr' ? 'Tunis, Tunisie' : 'Tunis, Tunisia',
+      value: language === 'fr' ? 'IMMEUBLE SAADI BEN SASSI El Menzah Tunis 1004' : 'IMMEUBLE SAADI BEN SASSI El Menzah Tunis 1004',
     },
   ];
 
@@ -153,7 +144,7 @@ const Contact = () => {
                   variant="outline"
                   className="w-full border-primary/50 hover:bg-primary/10"
                   size="lg"
-                  onClick={() => window.open('https://wa.me/', '_blank')}
+                  onClick={() => window.open('https://wa.me/21693863732', '_blank')}
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   {t('contact.whatsapp')}
@@ -187,7 +178,46 @@ const Contact = () => {
             {/* Map placeholder */}
             <Card className="bg-card border-border overflow-hidden">
               <div className="h-64 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                <MapPin className="w-16 h-16 text-primary/50" />
+                
+                <div className="embed-map-responsive">
+  <div className="embed-map-container">
+    <iframe
+      className="embed-map-frame"
+      frameBorder="0"
+      scrolling="no" 
+      src="https://maps.google.com/maps?width=600&height=400&hl=en&q=manzah%201%20immeuble%20el%20saadi&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+      allowFullScreen
+    ></iframe>
+  </div>
+
+  <style>{`
+    .embed-map-responsive {
+      position: relative;
+      text-align: right;
+      width: 100%;
+      height: 0;
+      padding-bottom: 66.66666666666666%;
+    }
+    .embed-map-container {
+      overflow: hidden;
+      background: none !important;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .embed-map-frame {
+      width: 100% !important;
+      height: 100% !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  `}</style>
+</div>
+
+
               </div>
             </Card>
           </div>

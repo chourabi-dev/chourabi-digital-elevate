@@ -28,7 +28,7 @@ const translations = {
     'services.title': 'Nos Services',
     'services.subtitle': 'Excellence technique et solutions sur-mesure',
     'services.web.title': 'Développement Web',
-    'services.web.desc': 'Applications web modernes et performantes avec Symfony, Laravel, React, Next.js et Vue.js',
+    'services.web.desc': 'Applications web modernes et performantes ont utilisons les technologies les plus récentes',
     'services.mobile.title': 'Développement Mobile',
     'services.mobile.desc': 'Applications iOS et Android natives avec Flutter et React Native',
     'services.desktop.title': 'Solutions Desktop',
@@ -58,16 +58,31 @@ const translations = {
     // Portfolio
     'portfolio.title': 'Nos Réalisations',
     'portfolio.subtitle': 'Projets qui inspirent',
-    'portfolio.project1.title': 'Plateforme E-commerce B2B',
-    'portfolio.project1.desc': 'Solution complète de vente en ligne avec gestion multi-catalogues et intégration ERP',
-    'portfolio.project1.impact': '+150% de croissance des ventes en ligne',
-    'portfolio.project2.title': 'Application Mobile Bancaire',
-    'portfolio.project2.desc': 'Application mobile sécurisée avec authentification biométrique et paiements instantanés',
-    'portfolio.project2.impact': '500K+ utilisateurs actifs',
-    'portfolio.project3.title': 'Système de Gestion Hospitalier',
-    'portfolio.project3.desc': 'Suite logicielle complète pour la gestion des patients, rendez-vous et dossiers médicaux',
-    'portfolio.project3.impact': '20 établissements équipés',
+
+    'portfolio.eventoo.title': 'Eventoo',
+    'portfolio.eventoo.desc': 'Eventoo est une plateforme moderne de gestion d’événements qui simplifie l’organisation, la communication et le networking.',
     
+
+    'portfolio.optypro.title': 'Optypro',
+    'portfolio.optypro.desc': 'Optypro est une plateforme innovante qui connecte les opticiens à leurs clients et facilite le networking professionnel.',
+
+
+    'portfolio.darelhenchir.title': 'Dar El Henchir',
+    'portfolio.darelhenchir.desc': 'Dar El Henchir est un gîte authentique niché au cœur de la nature, offrant un cadre paisible pour se ressource.',
+
+
+    'portfolio.garagelink.title': 'GarageLink',
+    'portfolio.garagelink.desc': 'GarageLink est une plateforme moderne de gestion pour garages et ateliers automobiles. Elle simplifie le suivi des réparations, la gestion des clients, des véhicules et des rendez-vous.',
+
+
+    'portfolio.dalu.title': 'Dalu',
+    'portfolio.dalu.desc': 'Dalu est un restaurant italien authentique en Allemagne, proposant une cuisine raffinée inspirée des saveurs traditionnelles d’Italie.',
+    
+    
+
+
+    
+
     // Process
     'process.title': 'Notre Processus',
     'process.subtitle': 'Une méthodologie éprouvée',
@@ -123,7 +138,7 @@ const translations = {
     'services.title': 'Our Services',
     'services.subtitle': 'Technical excellence and custom solutions',
     'services.web.title': 'Web Development',
-    'services.web.desc': 'Modern and high-performance web applications with Symfony, Laravel, React, Next.js and Vue.js',
+    'services.web.desc': 'Modern and high-performance web applications using latest techs',
     'services.mobile.title': 'Mobile Development',
     'services.mobile.desc': 'Native iOS and Android applications with Flutter and React Native',
     'services.desktop.title': 'Desktop Solutions',
@@ -162,6 +177,33 @@ const translations = {
     'portfolio.project3.title': 'Hospital Management System',
     'portfolio.project3.desc': 'Complete software suite for patient, appointment and medical records management',
     'portfolio.project3.impact': '20 facilities equipped',
+
+
+    'portfolio.eventoo.title': 'Eventoo',
+    'portfolio.eventoo.desc': 'Eventoo is a modern event-management platform that streamlines organization, communication, and networking.',
+
+    
+    'portfolio.optypro.title': 'Optypro',
+    'portfolio.optypro.desc': 'Optypro is an innovative platform that connects opticians with their clients and makes professional networking easier.',
+
+
+    'portfolio.darelhenchir.title': 'Dar El Henchir',
+    'portfolio.darelhenchir.desc': 'Dar El Henchir is a charming guest house nestled in the heart of nature, offering a peaceful setting for a relaxing getaway.',
+
+
+    
+    'portfolio.garagelink.title': 'GarageLink',
+    'portfolio.garagelink.desc': 'GarageLink is a modern management platform for car repair shops and automotive workshops. It streamlines repair tracking, customer management, vehicle records, and appointments',
+    
+    
+
+    'portfolio.dalu.title': 'Dalu',
+    'portfolio.dalu.desc': 'Dalu is an authentic Italian restaurant in Germany, offering refined cuisine inspired by traditional Italian flavors.',
+    
+    
+
+
+    
     
     // Process
     'process.title': 'Our Process',

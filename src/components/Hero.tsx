@@ -32,11 +32,8 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container-custom text-center">
-        <div className="animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/50 backdrop-blur-sm rounded-full mb-8 border border-primary/20">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm">{t('hero.title')}</span>
-          </div>
+        <div className="animate-fade-in" style={{ marginTop:100 }}>
+          
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="gradient-text">{t('hero.subtitle')}</span>
@@ -66,7 +63,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Stats */}
+        {/* Stats
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 animate-slide-up">
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">10+</div>
@@ -84,7 +81,7 @@ const Hero = () => {
             <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">98%</div>
             <div className="text-foreground/60">{language === 'fr' ? 'Satisfaction client' : 'Client satisfaction'}</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

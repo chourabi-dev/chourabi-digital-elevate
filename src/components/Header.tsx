@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Globe, Menu, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import logo from '@/assets/logo-dark.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,9 +42,8 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <button onClick={() => scrollToSection('hero')} className="text-xl font-bold gradient-text">
-              CES
-            </button>
+            <img onClick={() => scrollToSection('hero')} src={ logo } style={{width:180}} />
+              
           </div>
 
           {/* Desktop Navigation */}
