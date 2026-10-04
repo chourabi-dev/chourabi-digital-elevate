@@ -1,65 +1,39 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Linkedin, Github, Twitter, Mail } from 'lucide-react';
-
 import logo from '@/assets/logo-dark.png';
 
 const Footer = () => {
   const { t } = useLanguage();
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-card border-t border-border py-12">
+    <footer className="border-t border-border bg-card/40 pt-16 pb-8">
       <div className="container-custom">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-10 mb-12">
           <div>
-            <img src={ logo } style={{ width:250, marginBottom:25 }} alt="" />
-            <p className="text-foreground/70 mb-4">{t('footer.tagline')}</p>
-            <div className="flex gap-4">
-              {
-                /*
-                <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Linkedin className="w-5 h-5 text-primary" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Github className="w-5 h-5 text-primary" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Twitter className="w-5 h-5 text-primary" />
-              </a>
-              <a href="mailto:contact@ces-agency.com" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Mail className="w-5 h-5 text-primary" />
-              </a>
-                */
-              }
-            </div>
+            <img src={logo} className="w-56 mb-5" alt="Chourabi E Business Solutions" />
+            <p className="text-muted-foreground">{t('footer.tagline')}</p>
           </div>
-
           <div>
-            <h4 className="font-bold mb-4">{t('nav.services')}</h4>
-            <ul className="space-y-2 text-foreground/70">
-              <li><a href="#services" className="hover:text-primary transition-colors">{t('services.web.title')}</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">{t('services.mobile.title')}</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">{t('services.consulting.title')}</a></li>
-              <li><a href="#services" className="hover:text-primary transition-colors">{t('services.design.title')}</a></li>
+            <h4 className="font-semibold mb-4">{t('nav.services')}</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              {['web', 'mobile', 'consulting', 'design'].map((k) => (
+                <li key={k}><a href="#services" className="hover:text-primary transition-colors">{t(`services.${k}.title`)}</a></li>
+              ))}
             </ul>
           </div>
-
           <div>
-            <h4 className="font-bold mb-4">{t('contact.info')}</h4>
-            <ul className="space-y-2 text-foreground/70">
+            <h4 className="font-semibold mb-4">{t('contact.info')}</h4>
+            <ul className="space-y-2 text-muted-foreground break-words">
               <li>contact@chourabi-e-business-solutions.com</li>
               <li>+216 93 863 732</li>
               <li>IMMEUBLE SAADI BEN SASSI El Menzah Tunis 1004</li>
             </ul>
           </div>
         </div>
-
-        <div className="border-t border-border pt-8 text-center text-foreground/60">
-          <p>© {currentYear} CHOURABI E BUSINESS SOLUTIONS. {t('footer.rights')}</p>
+        <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between gap-2 text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} CHOURABI E BUSINESS SOLUTIONS. {t('footer.rights')}</p>
+          <p className="font-mono">built with React · TypeScript · Tailwind</p>
         </div>
       </div>
     </footer>
   );
 };
-
 export default Footer;

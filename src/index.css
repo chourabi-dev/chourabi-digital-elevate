@@ -8,10 +8,10 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
+    --background: 226 50% 5%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 14%;
+    --card: 226 40% 8%;
     --card-foreground: 210 40% 98%;
 
     --popover: 222 47% 14%;
@@ -32,7 +32,7 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 20%;
+    --border: 224 30% 15%;
     --input: 217 33% 20%;
     --ring: 217 91% 60%;
 
@@ -67,69 +67,45 @@ All colors MUST be HSL.
   }
 }
 
+@layer base {
+  html { scroll-padding-top: 5rem; }
+  body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  h1, h2, h3, h4 { font-family: 'Space Grotesk', 'Inter', sans-serif; letter-spacing: -0.02em; }
+  ::selection { background: hsl(var(--primary) / .35); }
+  :focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 3px; border-radius: 6px; }
+}
+
 @layer components {
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  .gradient-text { @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary; }
+  .section-padding { @apply py-20 md:py-32; }
+  .container-custom { @apply container mx-auto px-4 md:px-6 lg:px-8; }
+  .bg-grid {
+    background-image: linear-gradient(hsl(var(--border) / .55) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / .55) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 30%, transparent 100%);
   }
-
-  .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  /* cursor-tracking spotlight, driven by --mx/--my set from JS */
+  .spot { position: relative; isolation: isolate; }
+  .spot::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: -1; opacity: 0;
+    transition: opacity .3s;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), hsl(var(--primary) / .18), transparent 60%);
   }
-
-  .glow-effect {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+  .spot::after {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px; opacity: 0; transition: opacity .3s;
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), hsl(var(--primary) / .9), transparent 70%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
   }
-
-  .section-padding {
-    @apply py-20 md:py-32;
-  }
-
-  .container-custom {
-    @apply container mx-auto px-4 md:px-6 lg:px-8;
+  .spot:hover::before, .spot:hover::after { opacity: 1; }
+  .noise::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }
 
-@layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }

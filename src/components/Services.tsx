@@ -1,91 +1,41 @@
-import { Code, Smartphone, Monitor, TrendingUp, Blocks, Wrench, Server, Palette } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Globe, Smartphone, Monitor, Lightbulb, Plug, Wrench, Cloud, Palette } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Card, CardContent } from '@/components/ui/card';
+import SectionTitle from './fx/SectionTitle';
+import Spot from './fx/Spot';
 
 const Services = () => {
   const { t } = useLanguage();
-
-  const services = [
-    {
-      icon: Code,
-      title: t('services.web.title'),
-      description: t('services.web.desc'),
-    },
-    {
-      icon: Smartphone,
-      title: t('services.mobile.title'),
-      description: t('services.mobile.desc'),
-    },
-    {
-      icon: Monitor,
-      title: t('services.desktop.title'),
-      description: t('services.desktop.desc'),
-    },
-    {
-      icon: TrendingUp,
-      title: t('services.consulting.title'),
-      description: t('services.consulting.desc'),
-    },
-    {
-      icon: Blocks,
-      title: t('services.api.title'),
-      description: t('services.api.desc'),
-    },
-    {
-      icon: Wrench,
-      title: t('services.custom.title'),
-      description: t('services.custom.desc'),
-    },
-    {
-      icon: Server,
-      title: t('services.hosting.title'),
-      description: t('services.hosting.desc'),
-    },
-    {
-      icon: Palette,
-      title: t('services.design.title'),
-      description: t('services.design.desc'),
-    },
+  const items = [
+    { k: 'web', icon: Globe, span: 'lg:col-span-2' },
+    { k: 'mobile', icon: Smartphone, span: '' },
+    { k: 'desktop', icon: Monitor, span: '' },
+    { k: 'consulting', icon: Lightbulb, span: '' },
+    { k: 'api', icon: Plug, span: '' },
+    { k: 'custom', icon: Wrench, span: 'lg:col-span-2' },
+    { k: 'hosting', icon: Cloud, span: 'lg:col-span-2' },
+    { k: 'design', icon: Palette, span: 'lg:col-span-2' },
   ];
 
   return (
-    <section id="services" className="section-padding bg-background">
+    <section id="services" className="section-padding">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">{t('services.title')}</span>
-          </h2>
-          <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-            {t('services.subtitle')}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <Card
-                key={index}
-                className="group hover-lift bg-card border-border hover:border-primary/50 transition-all duration-300"
-              >
-                <CardContent className="p-6">
-                  <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-foreground/70 leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+        <SectionTitle title={t('services.title')} subtitle={t('services.subtitle')} />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {items.map((s, i) => (
+            <motion.div key={s.k} className={s.span} initial={{ opacity: 0, y: 30, scale: 0.97 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: '-40px' }} transition={{ delay: (i % 4) * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+              <Spot className="group h-full rounded-2xl border border-border bg-card/60 p-7 md:p-8 min-h-[200px] flex flex-col justify-between overflow-hidden">
+                <s.icon className="w-9 h-9 text-primary transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110" strokeWidth={1.5} />
+                <div className="mt-10">
+                  <h3 className="text-xl md:text-2xl font-semibold mb-2">{t(`services.${s.k}.title`)}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-[15px]">{t(`services.${s.k}.desc`)}</p>
+                </div>
+              </Spot>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
-
 export default Services;
