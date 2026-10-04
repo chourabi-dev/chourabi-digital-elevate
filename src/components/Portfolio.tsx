@@ -3,6 +3,12 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import eventoo from '@/assets/eventoo.png';
+import eventoo2 from '@/assets/eventoo-v2.png';
+import eventooMobile from '@/assets/eventoo-mobile-app.png';
+
+import droplinkiLogo from '@/assets/droplinki.png';
+
+
 import optypro from '@/assets/optypro.png';
 import darelhenchir from '@/assets/darelhenchir.png';
 import garagelink from '@/assets/garagelink.png';
@@ -13,8 +19,25 @@ const Portfolio = () => {
   const { t } = useLanguage();
 
   const projects = [
+     {
+      image: droplinkiLogo,
+      title: t('portfolio.droplinki.title'),
+      description: t('portfolio.droplinki.desc'), 
+      technologies: ['NodeJS', 'REACTJS', 'SYMFONY'],
+      link:'http://droplinki.com'
+    },
+
+
     {
-      image: eventoo,
+      image: eventooMobile,
+      title: t('portfolio.eventoo_mobile_app.title'),
+      description: t('portfolio.eventoo_mobile_app.desc'), 
+      technologies: ['NodeJS', 'Flutter','Android', 'IOS'],
+      link:'https://play.google.com/store/apps/details?id=app.eventoo.mobile&hl=en'
+    },
+
+    {
+      image: eventoo2,
       title: t('portfolio.eventoo.title'),
       description: t('portfolio.eventoo.desc'), 
       technologies: ['Symfony', 'React', 'PostgreSQL'],

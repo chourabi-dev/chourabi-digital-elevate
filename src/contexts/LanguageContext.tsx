@@ -63,6 +63,20 @@ const translations = {
     'portfolio.eventoo.desc': 'Eventoo est une plateforme moderne de gestion d’événements qui simplifie l’organisation, la communication et le networking.',
     
 
+    'portfolio.droplinki.title': 'Droplinki',
+    'portfolio.droplinki.desc' : 'DropLinki est une plateforme SaaS moderne conçue pour aider les entreprises de livraison à centraliser, organiser et optimiser l’ensemble de leurs opérations depuis une seule interface.',
+    
+
+
+
+    
+
+
+
+    'portfolio.eventoo_mobile_app.title': 'Eventoo Mobile',
+    'portfolio.eventoo_mobile_app.desc': 'Eventoo est une plateforme moderne de gestion d’événements qui simplifie l’organisation, la communication et le networking.',
+
+  
     'portfolio.optypro.title': 'Optypro',
     'portfolio.optypro.desc': 'Optypro est une plateforme innovante qui connecte les opticiens à leurs clients et facilite le networking professionnel.',
 
@@ -179,8 +193,16 @@ const translations = {
     'portfolio.project3.impact': '20 facilities equipped',
 
 
+
+'portfolio.droplinki.title': 'Droplinki',
+'portfolio.droplinki.desc' : 'DropLinki is a modern SaaS platform designed to help delivery companies centralize, organize, and optimize all their operations from a single interface.',
+
     'portfolio.eventoo.title': 'Eventoo',
     'portfolio.eventoo.desc': 'Eventoo is a modern event-management platform that streamlines organization, communication, and networking.',
+
+    
+    'portfolio.eventoo_mobile_app.title': 'Eventoo Mobile',
+    'portfolio.eventoo_mobile_app.desc': 'Eventoo is a modern event-management platform that streamlines organization, communication, and networking.',
 
     
     'portfolio.optypro.title': 'Optypro',
